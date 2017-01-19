@@ -1,4 +1,4 @@
-# ExploreKU-phase-2-Unity-Application
+# ExploreKU phase 2
 A fancy front end demo of a web service project. 
 
 #Requirement

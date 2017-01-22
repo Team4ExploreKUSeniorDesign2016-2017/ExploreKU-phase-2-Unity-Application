@@ -7,6 +7,8 @@ public class SetFrameRateTool : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
+		ApplicationChrome.navigationBarState = ApplicationChrome.States.Visible;
+		ApplicationChrome.statusBarState = ApplicationChrome.States.Visible;
 		Application.targetFrameRate = frameRate;
 	}
 }

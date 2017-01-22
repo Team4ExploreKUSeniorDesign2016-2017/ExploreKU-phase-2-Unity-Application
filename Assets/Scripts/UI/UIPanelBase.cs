@@ -1,37 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ExploreKu.UnityComponents
 {
-	static class UIStateController
-	{
-		static Dictionary<string, UIPanelBase> alivePanels = new Dictionary<string, UIPanelBase>();
-		static Stack<UIPanelBase> panelDepthTracker = new Stack<UIPanelBase>();
-
-		public static void RegisterPanel(string name, UIPanelBase panel)
-		{
-			if(panel == null)
-				throw new System.ArgumentNullException("panel");
-
-			alivePanels.Add(name, panel);
-		}
-
-		public static void UnregisterPanel(string name)
-		{
-			alivePanels.Remove(name);
-		}
-	}
-
 	public abstract class UIPanelBase : MonoBehaviour
 	{
 		protected enum DisplayState
 		{
+			Hidden = 0,
 			Shown,
-			Hidden
 		}
 
-		private DisplayState currentState;
+		private DisplayState currentState = DisplayState.Hidden;
 		private IEnumerator currentActiveCoroutine;
 
 		public RectTransform rectTransform

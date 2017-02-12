@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using ExploreKu.DataClasses;
+using ExploreKu.UnityComponents.DataProcessing;
 
 namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 {
@@ -10,9 +13,20 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		private float transitionTime = 0.5f;
 		[SerializeField]
 		private iTween.EaseType transitionEaseType = iTween.EaseType.easeOutCubic;
+		[SerializeField]
+		private Text titleText;
+		[SerializeField]
+		private Text descriptionText;
+		[SerializeField]
+		private RawImage titleImage;
+
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
+			Building b = DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId);
+			titleText.text = b.name;
+			descriptionText.text = b.description;
+
 			Rect panelRect = UIStateController.GetUICanvasRect();
 
 			iTween.ValueTo (gameObject, iTween.Hash (

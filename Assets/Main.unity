@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 5
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -297,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 3
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -510,6 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -632,6 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 9
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -749,6 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 4
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -940,6 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 2
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1062,6 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 8
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1179,6 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 6
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1303,6 +1311,7 @@ GameObject:
   - component: {fileID: 1575363905}
   - component: {fileID: 1575363906}
   - component: {fileID: 1575363903}
+  - component: {fileID: 1575363904}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1322,6 +1331,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frameRate: 60
+--- !u!114 &1575363904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575363902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc76d3422567c4de5ba59ea65a91f42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1575363905
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 7
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1643,6 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412d28b64faaf4c87a28e9efa29c74f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingId: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:

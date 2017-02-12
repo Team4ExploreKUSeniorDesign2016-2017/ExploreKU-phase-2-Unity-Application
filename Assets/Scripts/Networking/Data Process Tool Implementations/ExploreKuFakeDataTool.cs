@@ -120,9 +120,9 @@ public class ExploreKuFakeDataTool : DataProcessTool
 
 	public override Location GetLocation(int id)
 	{
-		for (int i = 0; i < Location.Length; i++) {
-			if (id == Location.id) {
-				return Location [i];
+		for (int i = 0; i < fakeLocations.Length; i++) {
+			if (id == fakeLocations[i].id) {
+				return fakeLocations [i];
 			}
 		}
 
@@ -136,9 +136,9 @@ public class ExploreKuFakeDataTool : DataProcessTool
 
 	public override Building GetBuilding(int id)
 	{
-		for (int i = 0; i < Location.Length; i++) {
-			if (id == Location.id) {
-				return (Building)(Location [i]);
+		for (int i = 0; i < fakeLocations.Length; i++) {
+			if (id == fakeLocations[i].id) {
+				return (Building)(fakeLocations [i]);
 			}
 		}
 

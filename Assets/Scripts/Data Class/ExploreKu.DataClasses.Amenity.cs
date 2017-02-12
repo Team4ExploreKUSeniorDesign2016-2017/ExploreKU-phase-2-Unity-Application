@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class Amenity
+	public class Amenity
 	{
 		public int building_id;
 		public int id;

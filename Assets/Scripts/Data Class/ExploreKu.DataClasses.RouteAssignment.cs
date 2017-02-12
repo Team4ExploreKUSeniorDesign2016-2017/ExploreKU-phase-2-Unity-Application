@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class RouteAssignment
+	public class RouteAssignment
 	{
 		public int bus_stop_id;
 		public int id;

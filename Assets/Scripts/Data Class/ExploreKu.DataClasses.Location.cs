@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class Location 
+	public class Location
 	{
 		public int id;
 		public int location_id;
@@ -8,4 +8,4 @@
 		public GeographicCoordinate coordinate;
 		public string name;
 	}
-} 
+}

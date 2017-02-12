@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ExploreKu.UnityComponents
+namespace ExploreKu.UnityComponents.UIBehaviors
 {
 	public class UIStateController : MonoBehaviour
 	{

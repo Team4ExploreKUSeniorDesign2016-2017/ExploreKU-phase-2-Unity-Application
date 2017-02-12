@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class Building: Location
+	public class Building: Location
 	{
 		public string address;
 		public string description;

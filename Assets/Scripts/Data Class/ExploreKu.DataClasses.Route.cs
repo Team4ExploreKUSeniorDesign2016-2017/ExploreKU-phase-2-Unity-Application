@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class Route
+	public class Route
 	{
 		public string direction;
 		public int id;

@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	class BusStop: Location
+	public class BusStop: Location
 	{
 		public int id;
 		public int number;

@@ -9,7 +9,7 @@ public class RaycastTriggerTool : MonoBehaviour, IPointerClickHandler
 	// Use this for initialization
 	public void OnPointerClick(PointerEventData data)
 	{
-		FindObjectOfType<ExploreKu.UnityComponents.UIStateController>().GotoPanel("Information Panel");
+		FindObjectOfType<ExploreKu.UnityComponents.UIBehaviors.UIStateController>().GotoPanel("Information Panel");
 		//OnClick.Invoke();
 	}
 }

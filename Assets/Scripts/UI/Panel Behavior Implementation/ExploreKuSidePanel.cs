@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace ExploreKu.UnityComponents.PanelImplemtation
+namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 {
 	[RequireComponent(typeof(iTweenCallbackMod_UI))]
 	public class ExploreKuSidePanel : UIPanelBase

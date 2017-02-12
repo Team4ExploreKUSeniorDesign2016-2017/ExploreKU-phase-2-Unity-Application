@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace ExploreKu.UnityComponents
+namespace ExploreKu.UnityComponents.UIBehaviors
 {
 	public abstract class UIPanelBase : MonoBehaviour
 	{

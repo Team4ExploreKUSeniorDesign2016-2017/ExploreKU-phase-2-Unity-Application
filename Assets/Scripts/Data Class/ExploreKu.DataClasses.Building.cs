@@ -4,9 +4,8 @@
 	{
 		public string address;
 		public string description;
-		public int id;
-		public string image;
-		public string[] amenities;
-		public string[] department;
+		public string imageUrl;
+		public Amenity[] amenities;
+		public Department[] department;
 	}
 }

@@ -142,7 +142,7 @@ public class ExploreKuFakeDataTool : DataProcessTool
 			}
 		}
 
-		return null
+		return null;
 	}
 
 	public override Building[] GetAllBuildings()

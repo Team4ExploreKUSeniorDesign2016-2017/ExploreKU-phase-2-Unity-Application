@@ -3,11 +3,10 @@
 	public enum LocationType
 	{
 		Generic,
-		Acadamic,
+		Building,
 		BusStop,
 		ParkingLot,
 		Accessibility,
 		Dinning
 	}
 }
-

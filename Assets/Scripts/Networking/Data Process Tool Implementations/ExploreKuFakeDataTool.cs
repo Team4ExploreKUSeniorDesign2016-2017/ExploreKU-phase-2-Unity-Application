@@ -147,6 +147,17 @@ public class ExploreKuFakeDataTool : DataProcessTool
 
 	public override Building[] GetAllBuildings()
 	{
-		return Array.ConvertAll(fakeLocations,item=>(Building)item);
+		throw new NotImplementedException();
+		//return Array.ConvertAll(fakeLocations,item=>(Building)item);
+	}
+
+	public override T GetLocationOfType<T>(int id, LocationType a)
+	{
+		throw new NotImplementedException();
+	}
+
+	public override T[] GetAllLocationsOfType<T>(LocationType a)
+	{
+		throw new NotImplementedException();
 	}
 }

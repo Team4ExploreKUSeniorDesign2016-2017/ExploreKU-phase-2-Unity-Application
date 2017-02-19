@@ -20,7 +20,6 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		[SerializeField]
 		private RawImage titleImage;
 
-
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
 			Building b = DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId);

@@ -698,6 +698,17 @@ MonoBehaviour:
           m_StringArgument: List Panel
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1748746141}
+        m_MethodName: SetListType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &361989781
@@ -1001,6 +1012,17 @@ MonoBehaviour:
           m_StringArgument: List Panel
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1748746141}
+        m_MethodName: SetListType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &542312166
@@ -1162,7 +1184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.392}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1209,6 +1231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionTime: 0.35
   transitionEaseType: 7
+  titleText: {fileID: 1049365387}
+  cellTemplate: {fileID: 798210812}
+  listContentRootTransform: {fileID: 924115831}
 --- !u!1 &704220741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798210810}
   - component: {fileID: 798210811}
+  - component: {fileID: 798210812}
   m_Layer: 5
   m_Name: List Cell Template
   m_TagString: Untagged
@@ -1411,6 +1437,19 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+--- !u!114 &798210812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798210809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd53ad6163c04e98a1e96345350e8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1240264029}
+  label: {fileID: 967199798}
 --- !u!1 &798728755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1669,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: List Panel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748746141}
+        m_MethodName: SetListType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2224,6 +2274,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: List Panel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748746141}
+        m_MethodName: SetListType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3578,6 +3639,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: List Panel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748746141}
+        m_MethodName: SetListType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

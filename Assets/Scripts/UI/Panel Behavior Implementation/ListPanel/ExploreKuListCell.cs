@@ -14,7 +14,17 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		public void UpdateInformation(Location location)
 		{
+			label.text = location.name;
+		}
 
+		public void Disappear()
+		{
+			gameObject.SetActive(false);
+		}
+
+		public void Appear()
+		{
+			gameObject.SetActive(true);
 		}
 	}
 }

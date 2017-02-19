@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ExploreKu.DataClasses;
 
 namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 {
@@ -39,6 +40,11 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 				"onupdatetarget", gameObject));
 
 			yield return new WaitForSeconds(transitionTime);
+		}
+
+		public void SetListType(int locationType)
+		{
+			ExploreKuStateSaver.listViewDisplayType = (LocationType)locationType;
 		}
 	}
 }

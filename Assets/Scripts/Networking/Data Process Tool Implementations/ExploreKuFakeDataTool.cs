@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ExploreKu.DataClasses;
 using ExploreKu.UnityComponents.DataProcessing;
 
@@ -115,6 +116,102 @@ public class ExploreKuFakeDataTool : DataProcessTool
 			address = "1251 Wescoe Hall Drive",
 			description = "Chemistry and physics had been taught at KU since its earliest years, and pharmacy was added in 1885. Surging enrollments after World War II emphasized the mechanical and technological shortcomings of Bailey Chemical Laboratory and Blake Hall, science facilities designed before the turn of the 20th century. Planning began in 1949 for a new building that would house the departments of chemistry and physics and the School of Pharmacy. State Architect Charles Marshall designed a six-story, E-shaped building of native limestone to be built on the southwest slope of the hill.\n\nExtensive planning was done to accommodate the wiring, plumbing and ventilation necessary for the various labs and research stations, and the massive structure, which included a science library, cost $3.4 million. At its dedication Nov. 5, 1954, it was named in honor of Deane W. Malott, the dynamic native Kansan and 1921 economics and journalism alumnus who was the eighth chancellor (1939-51). A huge addition designed by Peters, Williams & Kubota of Lawrence was dedicated April 10, 1981; upgrades to mechanical and technological systems continue.\n\nMalott houses the departments of chemistry and of physics and astronomy and its observatory; the departments of medicinal chemistry and pharmacology and toxicology in the School of Pharmacy; the Molecular Structures Group of laboratories in mass spectrometry, nuclear magnetic resonance, protein structures and other specialties; administrative offices; faculty and staff offices; classrooms; specialty laboratories and research facilities; the Animal Care Unit; and support and supply services. A new School of Pharmacy building on west campus was completed in August 2010.",
 			imageUrl = ""
+		},
+		new BusStop
+		{
+			id = 10,
+			location_id = 173,
+			coordinate = new GeographicCoordinate(),
+			name = "Kansas Union",
+			location_type = LocationType.BusStop,
+			number = 43,
+			RouteAssignment =null
+
+		},
+		new BusStop
+		{
+			id = 11,
+			location_id = 168,
+			coordinate = new GeographicCoordinate(),
+			name = "Fraser Hall",
+			location_type = LocationType.BusStop,
+			number = 43,
+			RouteAssignment =null
+		},
+		new BusStop
+		{
+			id = 12,
+			location_id = 465,
+			coordinate = new GeographicCoordinate(),
+			name = "Budig Hall",
+			location_type = LocationType.BusStop,
+			number = 43,
+			RouteAssignment =null
+		},
+		new BusStop
+		{
+			id = 13,
+			location_id = 168,
+			coordinate = new GeographicCoordinate(),
+			name = "Fraser Hall",
+			location_type = LocationType.BusStop,
+			number = 43,
+			RouteAssignment =null
+		},
+		new BusStop
+		{
+			id = 14,
+			location_id = 369,
+			coordinate = new GeographicCoordinate(),
+			name = "Engineering School",
+			location_type = LocationType.BusStop,
+			number = 43,
+			RouteAssignment =null
+		},
+		new ParkingLot
+		{
+			id = 15,
+			location_id = 14,
+			coordinate = new GeographicCoordinate(),
+			name = "Budig ParkingLot",
+			location_type = LocationType.ParkingLot,
+			status = "full"
+		},
+		new ParkingLot
+		{
+			id = 16,
+			location_id = 53,
+			coordinate = new GeographicCoordinate(),
+			name = "Stadium East ParkingLot",
+			location_type = LocationType.ParkingLot,
+			status = "empty"
+		},
+		new ParkingLot
+		{
+			id = 16,
+			location_id = 65,
+			coordinate = new GeographicCoordinate(),
+			name = "Stadium West ParkingLot",
+			location_type = LocationType.ParkingLot,
+			status = "full"
+		},
+		new ParkingLot
+		{
+			id = 15,
+			location_id = 125,
+			coordinate = new GeographicCoordinate(),
+			name = "Fieldhouse South ParkingLot",
+			location_type = LocationType.ParkingLot,
+			status = "full"
+		},
+		new ParkingLot
+		{
+			id = 16,
+			location_id = 90,
+			coordinate = new GeographicCoordinate(),
+			name = "Recreation Center ParkingLot",
+			location_type = LocationType.ParkingLot,
+			status = "empty"
 		}
 	};
 
@@ -147,17 +244,27 @@ public class ExploreKuFakeDataTool : DataProcessTool
 
 	public override Building[] GetAllBuildings()
 	{
-		throw new NotImplementedException();
-		//return Array.ConvertAll(fakeLocations,item=>(Building)item);
+		return GetAllLocationsOfType<Building> (LocationType.Building);
 	}
 
 	public override T GetLocationOfType<T>(int id, LocationType a)
 	{
-		throw new NotImplementedException();
+		for (int i = 0; i < fakeLocations.Length; i++) {
+			if (id == fakeLocations [i].id && fakeLocations[i].location_type == a) {
+				return (T)fakeLocations [i];
+			}
+		}
+		return null;
 	}
 
 	public override T[] GetAllLocationsOfType<T>(LocationType a)
 	{
-		throw new NotImplementedException();
+		List<T> returnList=new List<T>();
+		for (int i = 0; i < fakeLocations.Length; i++) {
+			if (fakeLocations [i].location_type == a) {
+				returnList.Add((T)fakeLocations [i]);
+			}
+		}
+		return returnList.ToArray();
 	}
 }

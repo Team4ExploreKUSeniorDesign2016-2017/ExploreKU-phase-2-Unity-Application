@@ -1392,6 +1392,7 @@ GameObject:
   - component: {fileID: 798210810}
   - component: {fileID: 798210811}
   - component: {fileID: 798210812}
+  - component: {fileID: 798210813}
   m_Layer: 5
   m_Name: List Cell Template
   m_TagString: Untagged
@@ -1450,6 +1451,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1240264029}
   label: {fileID: 967199798}
+  iconSprites:
+  - {fileID: 21300000, guid: 7861437a5b1e542acb469dfb1b21abd3, type: 3}
+  - {fileID: 21300000, guid: ea78f3309673045df91d2bc55b92713a, type: 3}
+  - {fileID: 21300000, guid: b5e448f0179d04d78b94457147f487b0, type: 3}
+  - {fileID: 21300000, guid: 4d81526dd8fa14c3d941f9455d5ce0ec, type: 3}
+  - {fileID: 21300000, guid: f8da481859e524188af760ee8bf4518b, type: 3}
+  - {fileID: 21300000, guid: 47dbf9ace904c4ff08be3ee0f4cb02a1, type: 3}
+--- !u!114 &798210813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798210809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 967199798}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 798210812}
+        m_MethodName: GotoDesignatedPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &798728755
 GameObject:
   m_ObjectHideFlags: 0

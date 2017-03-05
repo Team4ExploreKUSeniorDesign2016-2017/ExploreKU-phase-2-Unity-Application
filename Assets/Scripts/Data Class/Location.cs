@@ -11,8 +11,6 @@ namespace ExploreKu.DataClasses
 		public float altitude;
 		public LocatableType location_type;
 
-		//
-
 		[JsonIgnoreAttribute]
 		public GeographicCoordinate coordinate
 		{

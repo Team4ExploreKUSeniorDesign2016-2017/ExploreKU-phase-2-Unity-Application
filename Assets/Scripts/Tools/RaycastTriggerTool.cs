@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using ExploreKu.UnityComponents.UIBehaviors;
 
 public class RaycastTriggerTool : MonoBehaviour, IPointerClickHandler
 {
@@ -11,7 +12,7 @@ public class RaycastTriggerTool : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData data)
 	{
 		ExploreKuStateSaver.selectedId = buildingId;
-		FindObjectOfType<ExploreKu.UnityComponents.UIBehaviors.UIStateController>().GotoPanel("Information Panel");
+		UIStateController.Instance.GotoPanel("Information Panel");
 		//OnClick.Invoke();
 	}
 }

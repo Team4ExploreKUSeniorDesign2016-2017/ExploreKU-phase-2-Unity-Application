@@ -5,9 +5,19 @@ namespace ExploreKu.UnityComponents.Networking
 {
 	public class NetworkingTool : MonoBehaviour
 	{
-
 		public delegate void OnNetworkingComplete(string jsonReturnValue);
 		public delegate void OnNetworkingError(string errorMessage, string jsonReturnValue);
+
+		public static NetworkingTool Instance
+		{
+			get;
+			private set;
+		}
+
+		void Awake()
+		{
+			Instance = this;
+		}
 
 		public void UploadJsonToUri(string json, string url, OnNetworkingComplete onComplete, OnNetworkingError onError)
 		{

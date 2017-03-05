@@ -6,6 +6,12 @@ namespace ExploreKu.UnityComponents.UIBehaviors
 {
 	public class UIStateController : MonoBehaviour
 	{
+		public static UIStateController Instance
+		{
+			get;
+			private set;
+		}
+
 		private static Dictionary<string, UIPanelBase> alivePanels = new Dictionary<string, UIPanelBase>();
 		private static Stack<UIPanelBase> panelDepthTracker = new Stack<UIPanelBase>();
 		private static IEnumerator currentActiveRoutine = null;
@@ -39,6 +45,8 @@ namespace ExploreKu.UnityComponents.UIBehaviors
 
 		void Awake()
 		{
+			Instance = this;
+
 			if(specifiedUICanvasRectTransform == null)
 				throw new System.ArgumentNullException("UI Canvas is unspecified", "specifiedUiCanvas");
 

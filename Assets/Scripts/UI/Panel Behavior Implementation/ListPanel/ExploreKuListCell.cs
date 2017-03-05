@@ -11,10 +11,24 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		private Image icon;
 		[SerializeField]
 		private Text label;
+		[SerializeField]
+		private Sprite[] iconSprites;
+
+		private Location referencedLocation;
+
 
 		public void UpdateInformation(Location location)
 		{
+			referencedLocation = location;
 			label.text = location.name;
+			icon.sprite = iconSprites[(int)location.location_type];
+		}
+
+		public void Reset()
+		{
+			label.text = "";
+			icon.sprite = iconSprites[0];
+			referencedLocation = null;
 		}
 
 		public void Disappear()
@@ -25,6 +39,24 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		public void Appear()
 		{
 			gameObject.SetActive(true);
+		}
+
+		public void GotoDesignatedPanel()
+		{
+			if(referencedLocation == null)
+				return;
+
+			ExploreKuStateSaver.selectedId = referencedLocation.id;
+			switch(referencedLocation.location_type)
+			{
+				case LocatableType.Building:
+					UIStateController.Instance.GotoPanel("Information Panel");
+					break;
+
+				default:
+					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: "+ referencedLocation.location_type.ToString());
+					break;
+			}
 		}
 	}
 }

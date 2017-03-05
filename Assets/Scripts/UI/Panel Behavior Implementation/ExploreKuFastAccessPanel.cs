@@ -44,7 +44,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		public void SetListType(int locationType)
 		{
-			ExploreKuStateSaver.listViewDisplayType = (LocationType)locationType;
+			ExploreKuStateSaver.listViewDisplayType = (LocatableType)locationType;
 		}
 	}
 }

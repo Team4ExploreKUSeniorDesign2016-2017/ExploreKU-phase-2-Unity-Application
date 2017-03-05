@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Adams Alumni Center",
+        "latitude": "38.960401",
+        "longitude": "-95.242294",
+        "altitude": "274.2",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 46,
+        "name": "International House",
+        "latitude": "38.961599",
+        "longitude": "-95.242954",
+        "altitude": "301.2",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 51,
+        "name": "Krehbiel Scholarship Hall",
+        "latitude": "38.959655",
+        "longitude": "-95.240913",
+        "altitude": "286.9",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 62,
+        "name": "Margaret Amini Scholarship Hall",
+        "latitude": "38.959253",
+        "longitude": "-95.241453",
+        "altitude": "293.1",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 86,
+        "name": "Sabatini Multicultural Resource Center",
+        "latitude": "38.959895",
+        "longitude": "-95.243239",
+        "altitude": "301.9",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 93,
+        "name": "Smith Hall",
+        "latitude": "38.959606",
+        "longitude": "-95.24255",
+        "altitude": "304.9",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 123,
+        "name": "Wesley Building",
+        "latitude": "38.959744",
+        "longitude": "-95.242075",
+        "altitude": "302.8",
+        "locatable_type": "Building"
+    },
+    {
+        "id": 131,
+        "name": "Lot 16",
+        "latitude": "38.95903",
+        "longitude": "-95.242712",
+        "altitude": null,
+        "locatable_type": "ParkingLot"
+    },
+    {
+        "id": 207,
+        "name": "Lot 120",
+        "latitude": "38.961565",
+        "longitude": "-95.241454",
+        "altitude": null,
+        "locatable_type": "ParkingLot"
+    },
+    {
+        "id": 208,
+        "name": "Kansas Union Park",
+        "latitude": "38.960646",
+        "longitude": "-95.243596",
+        "altitude": null,
+        "locatable_type": "ParkingLot"
+    },
+    {
+        "id": 245,
+        "name": "Kansas Union Station",
+        "latitude": "38.95941",
+        "longitude": "-95.24306",
+        "altitude": null,
+        "locatable_type": "BusStop"
+    }
+]

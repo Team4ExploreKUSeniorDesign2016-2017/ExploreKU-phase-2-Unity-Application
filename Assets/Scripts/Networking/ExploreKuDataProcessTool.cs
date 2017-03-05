@@ -21,7 +21,7 @@ namespace ExploreKu.UnityComponents.DataProcessing
 		public abstract Location[] GetAllLocations();
 		public abstract Building GetBuilding(int id);
 		public abstract Building[] GetAllBuildings();
-		public abstract T GetLocationOfType<T>(int id, LocationType a) where T : Location;
-		public abstract T[] GetAllLocationsOfType<T>(LocationType a) where T : Location;
+		public abstract T GetLocationOfType<T>(int id, LocatableType a) where T : Location;
+		public abstract T[] GetAllLocationsOfType<T>(LocatableType a) where T : Location;
 	}
 }

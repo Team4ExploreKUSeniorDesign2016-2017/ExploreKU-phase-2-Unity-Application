@@ -1,6 +1,6 @@
 ﻿namespace ExploreKu.DataClasses
 {
-	public enum LocationType
+	public enum LocatableType
 	{
 		Generic = 0,
 		Building = 1,

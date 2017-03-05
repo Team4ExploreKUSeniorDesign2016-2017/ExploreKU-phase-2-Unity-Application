@@ -1,0 +1,21 @@
+{
+    "id": 1,
+    "name": "Adams Alumni Center",
+    "latitude": "38.960401",
+    "longitude": "-95.242294",
+    "altitude": "274.2",
+    "locatable_type": "Building",
+    "locatable": {
+        "id": 1,
+        "image": null,
+        "description": "The redbrick classical-style building, designed by Kiene \u0026 Bradley Architectural Partnership of Topeka, was dedicated May 14, 1983, in the centennial year of the Alumni Association. The association had been housed in Fraser and Strong halls, Sudler House and the Kansas Union before the new center was built. An alumni fund drive raised $4.2 million for construction, and the KU Endowment Association donated a site northeast of the Kansas Union.\n\nThe building has reception areas; conference and meeting rooms; a lounge and library; a club and activity rooms for retired faculty; and administrative, programs, publications and records staff offices. The center is named in memory of K.S. \\Boots\\ Adams, a former student who went to work for Phillips Petroleum in Bartlesville, Okla., in 1920 to earn enough money to complete his KU business degree and retired as chief executive officer. His widow and seven children, five of them KU alumni, were major donors. The retired faculty club is named for Paul Endacott, a 1923 engineering alumnus and basketball star who also was a key executive at Phillips. He, his wife and two sons, also alumni, donated the funds for it.\n\nIncorporated into the building are architectural elements salvaged from Old Fraser Hall: wrought-iron railings from the towers, doors used as paneling, and balusters used as room dividers.",
+        "address": "1266 Oread Ave, Lawrence, KS 66045",
+        "amenities": [],
+        "departments": [
+            {
+                "id": 1,
+                "name": "Alumni Association"
+            }
+        ]
+    }
+}

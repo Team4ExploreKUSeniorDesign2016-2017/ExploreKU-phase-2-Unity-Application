@@ -3,6 +3,8 @@ using ExploreKu.DataClasses;
 
 namespace ExploreKu.UnityComponents.DataProcessing
 {
+	public delegate void OnFinishProcessing<T>(T result);
+
 	public abstract class DataProcessTool : MonoBehaviour
 	{
 		public static DataProcessTool Instance
@@ -17,11 +19,12 @@ namespace ExploreKu.UnityComponents.DataProcessing
 			Debug.Log(Instance.name + " registered");
 		}
 
-		public abstract Location GetLocation(int id);
-		public abstract Location[] GetAllLocations();
-		public abstract Building GetBuilding(int id);
-		public abstract Building[] GetAllBuildings();
-		public abstract T GetLocationOfType<T>(int id, LocatableType a) where T : Location;
-		public abstract T[] GetAllLocationsOfType<T>(LocatableType a) where T : Location;
+		public abstract void GetLocation(int id, OnFinishProcessing<Location> onFinish);
+		public abstract void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish);
+		public abstract void GetAllLocations(OnFinishProcessing<Location[]> onFinish);
+		public abstract void GetBuilding(int id, OnFinishProcessing<Building> onFinish);
+		public abstract void GetAllBuildings(OnFinishProcessing<Building[]> onFinish);
+		public abstract void GetLocationOfType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish) where T : Location;
+		public abstract void GetAllLocationsOfType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish) where T : Location;
 	}
 }

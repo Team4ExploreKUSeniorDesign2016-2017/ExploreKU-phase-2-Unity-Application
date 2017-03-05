@@ -1,0 +1,12 @@
+{
+    "id": 245,
+    "name": "Kansas Union Station",
+    "latitude": "38.95941",
+    "longitude": "-95.24306",
+    "altitude": null,
+    "locatable_type": "BusStop",
+    "locatable": {
+        "id": 37,
+        "number": 248
+    }
+}

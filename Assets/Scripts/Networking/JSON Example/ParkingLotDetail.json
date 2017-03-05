@@ -1,0 +1,12 @@
+{
+    "id": 131,
+    "name": "Lot 16",
+    "latitude": "38.95903",
+    "longitude": "-95.242712",
+    "altitude": null,
+    "locatable_type": "ParkingLot",
+    "locatable": {
+        "id": 6,
+        "status": "OK"
+    }
+}

@@ -2,7 +2,6 @@
 {
 	public class BusStop: Location
 	{
-		public int number;
-		public string[] RouteAssignment;
+		public Locatables.BusStop locatable;
 	}
 }

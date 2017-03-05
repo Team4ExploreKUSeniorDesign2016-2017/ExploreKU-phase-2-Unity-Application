@@ -2,7 +2,6 @@
 {
 	public class ParkingLot: Location
 	{
-		public int id;
-		public string status;
+		public Locatables.ParkingLot locatable;
 	}
 }

@@ -25,7 +25,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			RefreshListContent();
+			DataProcessTool.Instance.GetAllLocationsOfType<Location>(ExploreKuStateSaver.listViewDisplayType, RefreshListContent);
 			titleText.text = ExploreKuStateSaver.listViewDisplayType.ToString();
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
@@ -56,15 +56,13 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 			yield return new WaitForSeconds(transitionTime);
 		}
 
-		void RefreshListContent()
+		void RefreshListContent(Location[] filteredLocations)
 		{
 			if(cellCtrlList == null)
 			{
 				cellCtrlList = new List<ExploreKuListCell>();
 				cellCtrlList.Add(cellTemplate);
 			}
-
-			Location[] filteredLocations = DataProcessTool.Instance.GetAllLocationsOfType<Location>(ExploreKuStateSaver.listViewDisplayType);
 
 			while(cellCtrlList.Count < filteredLocations.Length)
 			{

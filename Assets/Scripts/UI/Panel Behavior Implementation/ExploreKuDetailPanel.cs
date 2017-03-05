@@ -22,9 +22,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			Building b = DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId);
-			titleText.text = b.name;
-			descriptionText.text = b.locatable.description;
+			DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId, RefreshInformation);
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
 
@@ -52,6 +50,12 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 				"onupdatetarget", gameObject));
 
 			yield return new WaitForSeconds(transitionTime);
+		}
+
+		private void RefreshInformation(Building b)
+		{
+			titleText.text = b.name;
+			descriptionText.text = b.locatable.description;
 		}
 	}
 }

@@ -18,7 +18,7 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 			T returnValue;
 			try
 			{
-				returnValue = JsonConvert.DeserializeObject<T>(www.text));
+				returnValue = JsonConvert.DeserializeObject<T>(www.text);
 			}
 			catch (Exception e)
 			{
@@ -36,13 +36,16 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 	public override void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish)
 	{
 		//THIS
-		throw new NotImplementedException();
+		
+		string url = apiBaseUrl + "/locations?lat=" + latitude + "&lng=" + longitude + "&distance=" + radius;
+		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
 
 	public override void GetLocation(int id, OnFinishProcessing<Location> onFinish)
 	{
 		//THIS
-		throw new NotImplementedException();
+		string url = apiBaseUrl + "location/" + id;
+		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
 
 	public override void GetAllLocations(OnFinishProcessing<Location[]> onFinish)

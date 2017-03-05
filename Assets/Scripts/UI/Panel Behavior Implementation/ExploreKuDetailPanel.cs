@@ -24,7 +24,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		{
 			Building b = DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId);
 			titleText.text = b.name;
-			descriptionText.text = b.description;
+			descriptionText.text = b.locatable.description;
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
 

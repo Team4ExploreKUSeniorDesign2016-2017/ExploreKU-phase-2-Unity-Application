@@ -2,6 +2,6 @@
 {
 	public class Building: Location
 	{
-		Locatables.Building locatable;
+		public Locatables.Building locatable;
 	}
 }

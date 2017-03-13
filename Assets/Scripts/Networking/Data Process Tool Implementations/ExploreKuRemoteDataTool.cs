@@ -11,32 +11,34 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 
 	public IEnumerator RemoteConnectionSequence<T>(string url, WWWForm form, OnFinishProcessing<T> onFinish)
 	{
-		WWW www = new WWW(url, form);
+		WWW www = form != null ? new WWW(url, form) : new WWW(url);
 		yield return www;
+
 		if (www.error == null)
 		{
 			T returnValue;
 			try
 			{
+				Debug.Log(www.text);
 				returnValue = JsonConvert.DeserializeObject<T>(www.text);
 			}
 			catch (Exception e)
 			{
-				Debug.LogError(e.Message);
+				Debug.LogError(www.url + ": "+ e.Message);
 				yield break;
 			}
 			onFinish(returnValue);
 		}
 		else
 		{
-			Debug.LogError(www.error);
+			Debug.LogError(www.url + ": "+ www.error);
 		}
 	}
 
 	public override void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish)
 	{
 		//THIS
-		
+
 		string url = apiBaseUrl + "/locations?lat=" + latitude + "&lng=" + longitude + "&distance=" + radius;
 		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
@@ -44,7 +46,7 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 	public override void GetLocation(int id, OnFinishProcessing<Location> onFinish)
 	{
 		//THIS
-		string url = apiBaseUrl + "location/" + id;
+		string url = apiBaseUrl + "locations/" + id;
 		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
 
@@ -65,7 +67,8 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 
 	public override void GetBuilding(int id, OnFinishProcessing<Building> onFinish)
 	{
-		throw new NotImplementedException();
+		string url = apiBaseUrl + "locations/" + id;
+		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
 
 	public override void GetLocationOfType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish)

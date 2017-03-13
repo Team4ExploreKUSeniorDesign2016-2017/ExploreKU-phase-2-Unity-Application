@@ -6,23 +6,26 @@ namespace ExploreKu.DataClasses
 	{
 		public int id;
 		public string name;
-		public float latitude;
-		public float longitude;
-		public float altitude;
-		public LocatableType location_type;
+		public string latitude;
+		public string longitude;
+		public string altitude;
+		public LocatableType locatable_type;
 
 		[JsonIgnoreAttribute]
-		public GeographicCoordinate coordinate
+		public float latitudeFloat
 		{
-			get
-			{
-				return new GeographicCoordinate()
-				{
-					latitude = this.latitude,
-					longitude = this.longitude,
-					altitude = this.altitude
-				};
-			}
+			get{return float.Parse(latitude ?? "0");}
 		}
+		[JsonIgnoreAttribute]
+		public float longitudeFloat
+		{
+			get{return float.Parse(longitude ?? "0");}
+		}
+		[JsonIgnoreAttribute]
+		public float altitudeFloat
+		{
+			get{return float.Parse(altitude ?? "0");}
+		}
+
 	}
 }

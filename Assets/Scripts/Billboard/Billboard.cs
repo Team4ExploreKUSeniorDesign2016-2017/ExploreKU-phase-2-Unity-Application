@@ -8,10 +8,10 @@ public class Billboard : MonoBehaviour {
 	{
 		mainCamera = Camera.main;
 	}
-	
+
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		transform.forward = -mainCamera.transform.forward;
+		transform.forward = mainCamera.transform.forward;
 	}
 }

@@ -21,7 +21,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		{
 			referencedLocation = location;
 			label.text = location.name;
-			icon.sprite = iconSprites[(int)location.location_type];
+			icon.sprite = iconSprites[(int)location.locatable_type];
 		}
 
 		public void Reset()
@@ -47,14 +47,14 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 				return;
 
 			ExploreKuStateSaver.selectedId = referencedLocation.id;
-			switch(referencedLocation.location_type)
+			switch(referencedLocation.locatable_type)
 			{
 				case LocatableType.Building:
 					UIStateController.Instance.GotoPanel("Information Panel");
 					break;
 
 				default:
-					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: "+ referencedLocation.location_type.ToString());
+					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: "+ referencedLocation.locatable_type.ToString());
 					break;
 			}
 		}

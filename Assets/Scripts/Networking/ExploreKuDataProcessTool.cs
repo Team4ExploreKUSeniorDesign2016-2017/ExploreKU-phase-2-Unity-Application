@@ -19,12 +19,10 @@ namespace ExploreKu.UnityComponents.DataProcessing
 			Debug.Log(Instance.name + " registered");
 		}
 
-		public abstract void GetLocation(int id, OnFinishProcessing<Location> onFinish);
+		public abstract void GetLocation<T>(int id, OnFinishProcessing<T> onFinish) where T : Location;
+		public abstract void GetAllLocations(OnFinishProcessing<Location> onFinish);
 		public abstract void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish);
-		public abstract void GetAllLocations(OnFinishProcessing<Location[]> onFinish);
-		public abstract void GetBuilding(int id, OnFinishProcessing<Building> onFinish);
-		public abstract void GetAllBuildings(OnFinishProcessing<Building[]> onFinish);
-		public abstract void GetLocationOfType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish) where T : Location;
-		public abstract void GetAllLocationsOfType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish) where T : Location;
+		public abstract void GetLocationOfLocatableType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish) where T : Location;
+		public abstract void GetAllLocationsOfLocatableType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish) where T : Location;
 	}
 }

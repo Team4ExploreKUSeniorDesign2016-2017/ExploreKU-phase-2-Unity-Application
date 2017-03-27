@@ -13,5 +13,7 @@ public class Billboard : MonoBehaviour {
 	void Update ()
 	{
 		transform.forward = mainCamera.transform.forward;
+		float size = (mainCamera.transform.position - transform.position).magnitude / 10;
+ 		transform.localScale = new Vector3(size,size,size);
 	}
 }

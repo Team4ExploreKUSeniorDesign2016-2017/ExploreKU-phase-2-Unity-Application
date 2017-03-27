@@ -1,32 +1,30 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
+using System.Text;
 using ExploreKu.DataClasses;
 using ExploreKu.UnityComponents.DataProcessing;
 
 namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 {
 	[RequireComponent(typeof(iTweenCallbackMod_UI))]
-	public class ExploreKuListPanel : UIPanelBase
+	public class ExploreKuBusStopPanel : UIPanelBase
 	{
 		[SerializeField]
 		private float transitionTime = 0.5f;
 		[SerializeField]
 		private iTween.EaseType transitionEaseType = iTween.EaseType.easeOutCubic;
-
 		[SerializeField]
 		private Text titleText;
 		[SerializeField]
-		private ExploreKuListCell cellTemplate;
+		private Text usefulInfoText;
 		[SerializeField]
-		private Transform listContentRootTransform;
-		private List<ExploreKuListCell> cellCtrlList = null;
+		private RawImage titleImage;
+		private BusStop focusedBusStop;
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			DataProcessTool.Instance.GetAllLocationsOfLocatableType<Location>(ExploreKuStateSaver.listViewDisplayType, RefreshListContent);
-			titleText.text = ExploreKuStateSaver.listViewDisplayType.ToString();
+			DataProcessTool.Instance.GetLocation<BusStop>(ExploreKuStateSaver.selectedId, RefreshInformation);
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
 
@@ -56,34 +54,34 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 			yield return new WaitForSeconds(transitionTime);
 		}
 
-		void RefreshListContent(Location[] filteredLocations)
+		private void RefreshInformation(BusStop b)
 		{
-			if(cellCtrlList == null)
-			{
-				cellCtrlList = new List<ExploreKuListCell>();
-				cellCtrlList.Add(cellTemplate);
-			}
+			focusedBusStop = b;
+			titleText.text = b.name;
+			usefulInfoText.text = BuildUsefulInfoString(b);
+		}
 
-			while(cellCtrlList.Count < filteredLocations.Length)
-			{
-				GameObject go = Instantiate(cellTemplate.gameObject);
-				go.transform.SetParent(listContentRootTransform, false);
-				ExploreKuListCell cell = go.GetComponent<ExploreKuListCell>();
-				cellCtrlList.Add(cell);
-			}
+		private string BuildUsefulInfoString(BusStop b)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine("Bus Stop Number: " + b.locatable.number);
+			return sb.ToString();
+		}
 
-			int i = 0;
-			foreach(Location l in filteredLocations)
-			{
-				cellCtrlList[i].Appear();
-				cellCtrlList[i].UpdateInformation(l);
-				i++;
-			}
+		public void SendTextToCheckSchedule()
+		{
+			if(focusedBusStop == null) return;
 
-			for(;i < cellCtrlList.Count; i++)
-			{
-				cellCtrlList[i].Disappear();
-			}
+			const string lawrenceTransitPhoneNumber = "+17853122414";
+
+			#if UNITY_ANDROID
+			const string textMessageFormat = "sms:{0}?body={1}";
+			#elif UNITY_IOS
+			const string textMessageFormat = "sms:{0};body={1}";
+			#endif
+
+			string textMessage = string.Format(textMessageFormat, lawrenceTransitPhoneNumber, focusedBusStop.locatable.number);
+			Application.OpenURL(textMessage);
 		}
 	}
 }

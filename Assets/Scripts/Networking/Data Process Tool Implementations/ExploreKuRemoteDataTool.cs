@@ -16,7 +16,7 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 
 		if (www.error == null)
 		{
-			T returnValue;
+			T returnValue = default(T);
 			try
 			{
 				Debug.Log(www.text);
@@ -35,46 +35,30 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 		}
 	}
 
+	public override void GetLocation<T>(int id, OnFinishProcessing<T> onFinish)
+	{
+		string url = apiBaseUrl + "locations/" + id;
+		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
+	}
+
+	public override void GetAllLocations(OnFinishProcessing<Location> onFinish)
+	{
+		throw new NotImplementedException();
+	}
+
 	public override void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish)
 	{
-		//THIS
-
 		string url = apiBaseUrl + "/locations?lat=" + latitude + "&lng=" + longitude + "&distance=" + radius;
 		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
 	}
 
-	public override void GetLocation(int id, OnFinishProcessing<Location> onFinish)
-	{
-		//THIS
-		string url = apiBaseUrl + "locations/" + id;
-		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
-	}
-
-	public override void GetAllLocations(OnFinishProcessing<Location[]> onFinish)
+	public override void GetAllLocationsOfLocatableType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish)
 	{
 		throw new NotImplementedException();
 	}
 
-	public override void GetAllBuildings(OnFinishProcessing<Building[]> onFinish)
+	public override void GetLocationOfLocatableType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish)
 	{
 		throw new NotImplementedException();
 	}
-
-	public override void GetAllLocationsOfType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish)
-	{
-		throw new NotImplementedException();
-	}
-
-	public override void GetBuilding(int id, OnFinishProcessing<Building> onFinish)
-	{
-		string url = apiBaseUrl + "locations/" + id;
-		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
-	}
-
-	public override void GetLocationOfType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish)
-	{
-		throw new NotImplementedException();
-	}
-
-
 }

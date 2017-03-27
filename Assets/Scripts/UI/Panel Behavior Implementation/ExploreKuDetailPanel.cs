@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Text;
 using ExploreKu.DataClasses;
 using ExploreKu.UnityComponents.DataProcessing;
 
@@ -16,13 +17,15 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		[SerializeField]
 		private Text titleText;
 		[SerializeField]
+		private Text usefulInfoText;
+		[SerializeField]
 		private Text descriptionText;
 		[SerializeField]
 		private RawImage titleImage;
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			DataProcessTool.Instance.GetBuilding(ExploreKuStateSaver.selectedId, RefreshInformation);
+			DataProcessTool.Instance.GetLocation<Building>(ExploreKuStateSaver.selectedId, RefreshInformation);
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
 
@@ -55,7 +58,26 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		private void RefreshInformation(Building b)
 		{
 			titleText.text = b.name;
+			usefulInfoText.text = BuildUsefulInfoString(b);
 			descriptionText.text = b.locatable.description;
+		}
+
+		private string BuildUsefulInfoString(Building b)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine("Amenities: ");
+			foreach(Amenity a in b.locatable.amenities)
+			{
+				sb.AppendLine("\t" + a.name);
+			}
+			sb.AppendLine();
+			sb.AppendLine("Departments: ");
+			foreach(Department d in b.locatable.departments)
+			{
+				sb.AppendLine("\t" + d.name);
+			}
+
+			return sb.ToString();
 		}
 	}
 }

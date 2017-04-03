@@ -36,6 +36,6 @@ namespace ExploreKu.UnityComponents.DataProcessing
 		public abstract void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish);
 		public abstract void GetLocationOfLocatableType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish) where T : Location;
 		public abstract void GetAllLocationsOfLocatableType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish) where T : Location;
-		public abstract void GetLocationsByKeyword(GeographicCoordinate location, float distance, LocatableType type, SortType sortBy, int maxReturnCount, OnFinishProcessing<Location[]> onFinish);
+		public abstract void GetLocationsByKeyword(GeographicCoordinate location, float distance, LocatableType type, SortType sortBy, int maxReturnCount, string keyword, OnFinishProcessing<Location[]> onFinish);
 	}
 }

@@ -25,7 +25,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			DataProcessTool.Instance.GetAllLocationsOfLocatableType<Location>(ExploreKuStateSaver.listViewDisplayType, RefreshListContent);
+			DataProcessTool.Instance.GetLocationsByKeyword(ExploreKuStateSaver.currentLocation, 1, ExploreKuStateSaver.listViewDisplayType, SortType.name, 20, RefreshListContent);
 			titleText.text = ExploreKuStateSaver.listViewDisplayType.ToString();
 
 			Rect panelRect = UIStateController.GetUICanvasRect();

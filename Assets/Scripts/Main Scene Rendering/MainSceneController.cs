@@ -68,6 +68,8 @@ public class MainSceneController : MonoBehaviour {
 			DataProcessTool.Instance.GetLocationsInRange(info.longitude, info.latitude, labelVisibleRadius, RefreshAllLabels);
 			isRefreshInProgress = true;
 		}
+
+		ExploreKuStateSaver.currentLocation = new GeographicCoordinate{longitude = info.longitude, latitude = info.latitude, altitude = info.altitude};
 	}
 
 	void RefreshAllLabels(Location[] locations)

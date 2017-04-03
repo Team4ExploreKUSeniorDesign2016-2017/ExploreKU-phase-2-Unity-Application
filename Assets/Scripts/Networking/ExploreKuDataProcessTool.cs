@@ -5,8 +5,20 @@ namespace ExploreKu.UnityComponents.DataProcessing
 {
 	public delegate void OnFinishProcessing<T>(T result);
 
+	public enum SortType
+	{
+		name,
+		distance,
+		id,
+		latitude,
+		longitude,
+		locatable_type
+	}
+
 	public abstract class DataProcessTool : MonoBehaviour
 	{
+
+
 		public static DataProcessTool Instance
 		{
 			get;
@@ -24,5 +36,6 @@ namespace ExploreKu.UnityComponents.DataProcessing
 		public abstract void GetLocationsInRange(float longitude, float latitude, float radius, OnFinishProcessing<Location[]> onFinish);
 		public abstract void GetLocationOfLocatableType<T>(int id, LocatableType a, OnFinishProcessing<T> onFinish) where T : Location;
 		public abstract void GetAllLocationsOfLocatableType<T>(LocatableType a, OnFinishProcessing<T[]> onFinish) where T : Location;
+		public abstract void GetLocationsByKeyword(GeographicCoordinate location, float distance, LocatableType type, SortType sortBy, int maxReturnCount, OnFinishProcessing<Location[]> onFinish);
 	}
 }

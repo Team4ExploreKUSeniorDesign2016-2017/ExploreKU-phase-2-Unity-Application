@@ -64,7 +64,7 @@ public class ExploreKuRemoteDataTool : DataProcessTool
 
     public override void GetLocationsByKeyword(GeographicCoordinate location, float distance, LocatableType type, SortType sortBy, int maxReturnCount, string keyword, OnFinishProcessing<Location[]> onFinish)
     {
-        string url = apiBaseUrl + "/locations?lat=" + ExploreKuStateSaver.currentLocation.latitude + "&lng=" + ExploreKuStateSaver.currentLocation.longitude + "&distance=" + distance + "&sort_by=" + sortBy + "&count=" + maxReturnCount + "&keyword=" + keyword;
+        string url = apiBaseUrl + "/locations?lat=" + ExploreKuStateSaver.currentLocation.latitude + "&lng=" + ExploreKuStateSaver.currentLocation.longitude + "&distance=" + distance + "&sort_by=" + sortBy + "&count=" + maxReturnCount + "&keyword=" + keyword + "&type=" + type;
 		StartCoroutine(RemoteConnectionSequence(url, null, onFinish));
     }
 }

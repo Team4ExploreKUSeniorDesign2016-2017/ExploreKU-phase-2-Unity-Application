@@ -23,8 +23,12 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		[SerializeField]
 		private RawImage titleImage;
 
+		private IEnumerator loadImageProcedure = null;
+
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
+			StopAllCoroutines();
+
 			DataProcessTool.Instance.GetLocation<Building>(ExploreKuStateSaver.selectedId, RefreshInformation);
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
@@ -57,6 +61,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		private void RefreshInformation(Building b)
 		{
+			StartCoroutine(LoadImageFromSource(b.locatable.image));
 			titleText.text = b.name;
 			usefulInfoText.text = BuildUsefulInfoString(b);
 			descriptionText.text = b.locatable.description;
@@ -78,6 +83,13 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 			}
 
 			return sb.ToString();
+		}
+
+		IEnumerator LoadImageFromSource(string url)
+		{
+			WWW download = new WWW(url);
+			yield return download;
+			titleImage.texture = download.texture;
 		}
 	}
 }

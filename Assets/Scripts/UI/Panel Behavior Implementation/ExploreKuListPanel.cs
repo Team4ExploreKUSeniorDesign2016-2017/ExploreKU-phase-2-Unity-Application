@@ -25,7 +25,7 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
-			DataProcessTool.Instance.GetLocationsByKeyword(ExploreKuStateSaver.currentLocation, 1, ExploreKuStateSaver.listViewDisplayType, SortType.name, 20, RefreshListContent);
+			DataProcessTool.Instance.GetLocationsByKeyword(ExploreKuStateSaver.currentLocation, 1, ExploreKuStateSaver.listViewDisplayType, SortType.distance, 20, "", RefreshListContent);
 			titleText.text = ExploreKuStateSaver.listViewDisplayType.ToString();
 
 			Rect panelRect = UIStateController.GetUICanvasRect();
@@ -54,6 +54,11 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 				"onupdatetarget", gameObject));
 
 			yield return new WaitForSeconds(transitionTime);
+		}
+
+		public void SearchAndRefreshWithKeywork(string keyword)
+		{
+			DataProcessTool.Instance.GetLocationsByKeyword(ExploreKuStateSaver.currentLocation, 1, ExploreKuStateSaver.listViewDisplayType, SortType.name, 20, keyword, RefreshListContent);
 		}
 
 		void RefreshListContent(Location[] filteredLocations)

@@ -28,7 +28,7 @@ namespace ExploreKu.UnityComponents.DataProcessing
 		void Awake()
 		{
 			Instance = this;
-			Debug.Log(Instance.name + " registered");
+			Debug.Log(this.GetType() + " registered");
 		}
 
 		public abstract void GetLocation<T>(int id, OnFinishProcessing<T> onFinish) where T : Location;

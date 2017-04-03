@@ -43,18 +43,20 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 
 		public void GotoDesignatedPanel()
 		{
-			if(referencedLocation == null)
+			if (referencedLocation == null)
 				return;
 
 			ExploreKuStateSaver.selectedId = referencedLocation.id;
-			switch(referencedLocation.locatable_type)
+			switch (referencedLocation.locatable_type)
 			{
 				case LocatableType.Building:
 					UIStateController.Instance.GotoPanel("Information Panel");
 					break;
-
+				case LocatableType.BusStop:
+					UIStateController.Instance.GotoPanel("Bus Stop Panel");
+					break;
 				default:
-					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: "+ referencedLocation.locatable_type.ToString());
+					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: " + referencedLocation.locatable_type.ToString());
 					break;
 			}
 		}

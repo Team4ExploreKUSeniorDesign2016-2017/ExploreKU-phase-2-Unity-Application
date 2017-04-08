@@ -10,11 +10,13 @@ public class PhoneCameraInput : MonoBehaviour {
 
 	WebCamTexture inputTexture;
 
-	IEnumerator Start() 
+	IEnumerator Start()
 	{
 		yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
 
-		if (Application.HasUserAuthorization(UserAuthorization.WebCam)) 
+		PlaySpace.color = Color.white;
+
+		if (Application.HasUserAuthorization(UserAuthorization.WebCam))
 		{
 			inputTexture = new WebCamTexture (720, 1280);
 			PlaySpace.texture = inputTexture;
@@ -25,7 +27,7 @@ public class PhoneCameraInput : MonoBehaviour {
 
 	void Update()
 	{
-		if (inputTexture) 
+		if (inputTexture)
 		{
 			ResolutionOutput.text = "X" + inputTexture.width + " Y" + inputTexture.height;
 		}

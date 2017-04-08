@@ -57,7 +57,7 @@ public class MainSceneController : MonoBehaviour {
 
 		GPSEncoder.SetLocalOrigin(currentGeocoord);
 
-		mainCamera.transform.localPosition = Vector3.up * info.altitude;
+		mainCamera.transform.localPosition = new Vector3(0, info.altitude + 3, 0);
 
 		if(isRefreshInProgress)
 			return;

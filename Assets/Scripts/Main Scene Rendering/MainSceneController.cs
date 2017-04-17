@@ -57,19 +57,49 @@ public class MainSceneController : MonoBehaviour {
 
 		GPSEncoder.SetLocalOrigin(currentGeocoord);
 
-		mainCamera.transform.localPosition = new Vector3(0, info.altitude + 3, 0);
-
 		if(isRefreshInProgress)
 			return;
 
 		if(lastTriggeredLocation == null || Vector3.Distance(lastTriggeredLocation.Value, currentGeocoord) > refreshDistance)
 		{
 			lastTriggeredLocation = currentGeocoord;
-			DataProcessTool.Instance.GetLocationsInRange(info.longitude, info.latitude, labelVisibleRadius, RefreshAllLabels);
+			DataProcessTool.Instance.GetLocationsInRange(info.longitude, info.latitude, labelVisibleRadius, WhenDataArrives);
 			isRefreshInProgress = true;
 		}
 
 		ExploreKuStateSaver.currentLocation = new GeographicCoordinate{longitude = info.longitude, latitude = info.latitude, altitude = info.altitude};
+	}
+
+	void WhenDataArrives(Location[] l)
+	{
+		AdjustCameraHeight(l);
+		RefreshAllLabels(l);
+	}
+
+	void AdjustCameraHeight(Location[] locations)
+	{
+		if(locations.Length == 0) return;
+
+		List<float> allAltitudes = new List<float>();
+		foreach(Location l in locations)
+		{
+			allAltitudes.Add(l.altitudeFloat);
+		}
+		allAltitudes.Sort();
+
+		int total = allAltitudes.Count;
+		int floor = total > 2 ? (int)(total * 0.1f) : 0;
+		int ceiling = total > 2 ? (int)(total * 0.9f) : total;
+
+		float sum = 0;
+		int i;
+		for(i =  floor; i < ceiling; i++)
+		{
+			print(allAltitudes[i]);
+			sum += allAltitudes[i];
+		}
+
+		mainCamera.transform.localPosition = new Vector3(0, sum / (ceiling - floor), 0);
 	}
 
 	void RefreshAllLabels(Location[] locations)

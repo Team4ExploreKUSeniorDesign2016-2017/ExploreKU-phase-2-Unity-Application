@@ -23,8 +23,6 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 		[SerializeField]
 		private RawImage titleImage;
 
-		private IEnumerator loadImageProcedure = null;
-
 		protected sealed override IEnumerator ShowSelfProcedure()
 		{
 			StopAllCoroutines();

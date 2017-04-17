@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace ExploreKu.UnityComponents.UIBehaviors
 {
@@ -19,6 +21,10 @@ namespace ExploreKu.UnityComponents.UIBehaviors
 		private static RectTransform uiCanvasRectTransform;
 		[SerializeField]
 		private  RectTransform specifiedUICanvasRectTransform;
+		[SerializeField]
+		private GraphicRaycaster graphicRaycaster;
+		[SerializeField]
+		private GameObject bottomLayer;
 
 		public static void RegisterPanel(string name, UIPanelBase panel)
 		{
@@ -53,11 +59,69 @@ namespace ExploreKu.UnityComponents.UIBehaviors
 			uiCanvasRectTransform = specifiedUICanvasRectTransform;
 		}
 
+		int flickFingerId = -1;
+		float timer = 0;
+		Vector2 touchDownCoordinate;
+
 		void Update()
 		{
+			if(panelDepthTracker.Count == 0) return;
+
+#if UNITY_EDITOR
 			if(Input.GetKeyUp(KeyCode.Escape))
 			{
 				GoBackToPreviousPanel();
+			}
+#endif
+
+			if(Input.touchCount != 1) return;
+			Touch t = Input.GetTouch(0);
+
+			if(panelDepthTracker.Count > 1) goto DetectSwipeBack;
+
+			var result = new List<RaycastResult>();
+			PointerEventData ped = new PointerEventData(null);
+			ped.position = t.position;
+			graphicRaycaster.Raycast(ped, result);
+			if(result.Count == 0)
+			{
+				Debug.Log("Tapped On Blank");
+				GoBackToPreviousPanel();
+				return;
+			}
+
+		DetectSwipeBack:
+
+			if(t.fingerId != flickFingerId && t.phase == TouchPhase.Began)
+			{
+				flickFingerId = t.fingerId;
+				touchDownCoordinate = t.position;
+				return;
+			}
+
+			if(t.fingerId == flickFingerId)
+			{
+				Vector2 distance;
+				switch(t.phase)
+				{
+				case TouchPhase.Moved:
+					distance  = t.position - touchDownCoordinate;
+					if(Mathf.Abs(Vector2.Angle(distance, Vector2.right)) >= 25) goto TouchCanceled;
+					break;
+
+				case TouchPhase.Ended:
+					distance = t.position - touchDownCoordinate;
+					bool isSwipeLeft = Mathf.Abs(distance.x  / Screen.width) > 0.2f && Mathf.Abs(Vector2.Angle(distance, Vector2.right)) < 10;
+					if(isSwipeLeft) GoBackToPreviousPanel();
+					goto TouchCanceled;
+
+				case TouchPhase.Canceled:
+				TouchCanceled:
+					flickFingerId = -1;
+					timer = 0;
+					break;
+				}
+
 			}
 		}
 

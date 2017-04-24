@@ -54,6 +54,9 @@ public class LocationLabelController : MonoBehaviour, IPointerDownHandler, IPoin
 			case LocatableType.BusStop:
 				UIStateController.Instance.GotoPanel("Bus Stop Panel");
 				break;
+			case LocatableType.ParkingLot:
+				UIStateController.Instance.GotoPanel("Parking Lot Panel");
+				break;
 			default:
 				Debug.LogWarning(assignedLocation.name + ": information is not assigned yet. ");
 				break;

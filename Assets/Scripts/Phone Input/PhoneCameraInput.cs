@@ -11,8 +11,6 @@ public class PhoneCameraInput : MonoBehaviour {
 
 	WebCamTexture inputTexture;
 
-	bool aspectRatioNotSet = true;
-
 	IEnumerator Start()
 	{
 		yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);

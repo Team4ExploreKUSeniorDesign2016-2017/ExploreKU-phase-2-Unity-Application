@@ -1,12 +1,39 @@
 {
-    "id": 131,
-    "name": "Lot 16",
-    "latitude": "38.95903",
-    "longitude": "-95.242712",
-    "altitude": null,
+    "id": 183,
+    "name": "W. Jayhawker Towers",
+    "latitude": "38.956525",
+    "longitude": "-95.256919",
+    "altitude": "301.0",
     "locatable_type": "ParkingLot",
     "locatable": {
-        "id": 6,
-        "status": "OK"
+        "id": 51,
+        "lot": 109,
+        "restrictions": "24 hours\nAll year",
+        "Total": 223,
+        "Cycle": null,
+        "parking_exceptions": [
+            "JT permit required",
+            "No visitor parking"
+        ],
+        "parking_count": {
+            "Gold": null,
+            "Blue": null,
+            "Red": 6,
+            "Yellow": null,
+            "DaisyHill": null,
+            "GSPCorbin": null,
+            "OliverMcCarthyHalls": null,
+            "AlumniPlace": null,
+            "JayhawkTowers": 211,
+            "SunflowerApartments": null,
+            "Handicap": 6,
+            "Meter": null,
+            "PF": null,
+            "Load": null,
+            "Reserved": null,
+            "Service": null,
+            "State": null,
+            "Other": null
+        }
     }
 }

@@ -55,6 +55,9 @@ namespace ExploreKu.UnityComponents.UIBehaviors.PanelImplemtation
 				case LocatableType.BusStop:
 					UIStateController.Instance.GotoPanel("Bus Stop Panel");
 					break;
+				case LocatableType.ParkingLot:
+					UIStateController.Instance.GotoPanel("Parking Lot Panel");
+					break;
 				default:
 					Debug.LogWarning("ExploreKuListCell: Given location type has not given an action: " + referencedLocation.locatable_type.ToString());
 					break;
